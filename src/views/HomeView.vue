@@ -41,7 +41,11 @@
             </div>
             <div class="q-mt-sm">
               If you want to contact me, I prefer
-              <span class="cursor-pointer text-primary">Telegram</span>. But,
+              <a
+                class="cursor-pointer text-primary"
+                href="https://t.me/karanarqq"
+                target="__blank"
+              >Telegram</a>. But,
               please, check
               <strong>Job requirements</strong>
               if you want to offer a job.
@@ -98,11 +102,17 @@
           Projects
         </div>
         <div class="text-body1">
-          Works for IT company located in Perm at fullstack wev dev position
-          (<span class="cursor-pointer text-primary">Get-Net</span>). Have
-          frilance projects for large companies with PyQt app. Now working in
-          Russian start-up: business messenger
-          <span class="cursor-pointer text-primary">tada.team</span>.
+          Works for IT company located in Perm at fullstack wev dev position (<a
+            href="https://www.get-net.ru"
+            class="cursor-pointer text-primary"
+            target="__blank"
+          >Get-Net</a>). Have frilance projects for large companies with PyQt app. Now
+          working in Russian start-up: business messenger
+          <a
+            href="https://tada.team"
+            target="__blank"
+            class="cursor-pointer text-primary"
+          >tada.team</a>.
         </div>
         <q-separator
           color="grey-1"
@@ -126,6 +136,38 @@
         />
         <div class="text-h4 q-mb-md">
           <q-icon
+            name="fas fa-code"
+            size="sm"
+            color="indigo-7"
+          />
+          Code examples
+        </div>
+        <div class="text-body1">
+          <q-card
+            class="q-pa-md no-shadow rounded-borders bg-grey-3"
+            bordered
+          >
+            <div
+              v-for="example in examples"
+              :key="example.label"
+              class="row"
+            >
+              {{ tagCharOpen }}<span class="text-purple-6 q-mr-xs">a</span><span class="text-green-6">href</span>="<a
+                class="text-primary cursor-pointer"
+                href="https://github.com/sadfsdfdsa/habratest"
+                target="__blank"
+              >{{ example.link }}</a>"{{ tagCharClose }}{{ example.label }}{{ tagCharOpen }}/<span
+                class="text-purple-6"
+              >a</span>{{ tagCharClose }}
+            </div>
+          </q-card>
+        </div>
+        <q-separator
+          color="grey-1"
+          class="q-my-md"
+        />
+        <div class="text-h4 q-mb-md">
+          <q-icon
             name="fas fa-link"
             size="sm"
             color="primary"
@@ -133,12 +175,14 @@
           Links and socials
         </div>
         <div class="row text-body1 q-gutter-lg">
-          <span
+          <a
             v-for="link in links"
             :key="link.label"
             class="text-primary cursor-pointer"
+            :href="link.link"
+            target="__blank"
           >
-            {{ link.label }}</span>
+            {{ link.label }}</a>
         </div>
         <!-- FOOTER -->
         <q-separator
@@ -175,6 +219,9 @@ export default class HomeView extends Vue {
   rating = 4
   inputRating = false
 
+  tagCharOpen = '<'
+  tagCharClose = '>'
+
   readonly skills = [
     'Vue.js (2, 3)',
     'Vue-router',
@@ -208,13 +255,25 @@ export default class HomeView extends Vue {
   ]
 
   readonly links = [
-    { label: 'Telegram' },
-    { label: 'Github' },
-    { label: 'Habr' },
-    { label: 'Career' },
-    { label: 'VK' },
-    { label: 'Email' },
-    { label: 'Medium' },
+    { label: 'Telegram', link: 'https://t.me/karanarqq' },
+    { label: 'Github', link: 'https://github.com/sadfsdfdsa' },
+    { label: 'Habr', link:'https://habr.com/ru/users/karanarqq/' },
+    { label: 'Career', link: 'https://career.habr.com/karanarqq' },
+    { label: 'VK', link: 'https://vk.com/karanarqq' },
+    { label: 'Email', link: 'mailto:vartose@yandex.com' },
+    { label: 'Medium', link: 'https://karanarqq.medium.com' },
+  ]
+
+  readonly examples = [
+    { label: 'My Habr article', link: 'https://github.com/sadfsdfdsa/habratest' },
+    {
+      label: 'Filtery test case',
+      link: 'https://github.com/sadfsdfdsa/bell-integrator-filtery',
+    },
+    {
+      label: 'Vue3 test case',
+      link: 'https://github.com/sadfsdfdsa/it_club_test_case',
+    },
   ]
 
   get designText() {
