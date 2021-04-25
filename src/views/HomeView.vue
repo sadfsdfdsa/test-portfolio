@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div class="row justify-center">
-      <div class="column col-6 q-mt-md">
+      <div class="column col-md-6 col-10 q-mt-md">
         <div class="row q-mb-md items-center q-gutter-lg">
           <div class="text-h3 left-brdr-anim">
             Profile
